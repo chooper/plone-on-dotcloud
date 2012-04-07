@@ -1,0 +1,20 @@
+#!/bin/sh
+
+if [ -d ~/Plone ]; then
+ echo "Plone was already built."
+ exit 0
+fi
+
+echo "Grabbing Plone..."
+wget -O- https://launchpad.net/plone/4.1/4.1.4/+download/Plone-4.1.4-UnifiedInstaller.tgz | tar xfvz -
+
+echo "Installing Plone (THIS WILL TAKE SOME TIME)"
+cd Plone-4.1.4-UnifiedInstaller
+./install.sh standalone
+
+#echo "Reconfiguring Plone..."
+#cd ~/Plone/zinstance
+#sed -i.bak "s/http-address = 8080/http-address = '$PORT_WWW'/g" buildout.cfg
+#./bin/buildout
+
+echo "Done."

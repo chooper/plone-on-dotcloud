@@ -1,0 +1,5 @@
+plone:
+  type: custom
+  buildscript: plone/builder
+  ports:
+    www: http
