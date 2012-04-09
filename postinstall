@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "Reconfiguring Plone..."
+cd ~/Plone/zinstance
+sed -i.bak "s/http-address = 8080/http-address = '$PORT_WWW'/g" buildout.cfg
+./bin/buildout
+
